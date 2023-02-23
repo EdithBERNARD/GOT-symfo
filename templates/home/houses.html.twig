@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} GOT houses !{% endblock %}
+
+{% block body %}
+<main>
+        <div class="wrapper">
+            <ul class="houses-list">
+                {% for house in allHouses  %}
+                    <li class="house-logo" style="background:#{{ house.colour }};">
+                        <a href="#/house/1">
+                            <img src="{{ asset('img/houses/' ~ house.image) }}" alt="{{ house.name }}">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+{% endblock %}
