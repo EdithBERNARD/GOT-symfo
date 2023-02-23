@@ -27,7 +27,7 @@ class House
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $updateedAt;
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -71,14 +71,14 @@ class House
         return $this;
     }
 
-    public function getUpdateedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updateedAt;
+        return $this->updatedAt;
     }
 
-    public function setUpdateedAt(?\DateTimeInterface $updateedAt): self
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
-        $this->updateedAt = $updateedAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
