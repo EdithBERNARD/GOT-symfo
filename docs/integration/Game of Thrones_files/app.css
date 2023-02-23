@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+
+}
+html {
+    font-family: 'Signika Negative', sans-serif;
+    background: #ededed;
+}
+p {
+    font-family: 'Mada', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #222;
+
+}
+img {
+    max-width: 100%;
+}
+.wrapper {
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+li {
+    list-style-type: none;
+}
+ul {
+    padding: 0;
+}
+nav a {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+nav li {
+    display: inline-block;
+}
+nav li:first-child {
+    margin-right: 1rem;
+}
+nav li:first-child:after {
+    content: "-";
+    font-size: 2em;
+    margin-left: 1rem;
+
+}
+nav ul {
+    text-align: center;
+}
+.separator {
+    height: 1px;
+    width: 35%;
+    background: #222;
+    margin: 2rem auto;
+}
+.character-card {
+    min-width: 300px;
+    text-align: center;
+    padding: 1rem;
+}
+.character-card a {
+    display: block;
+    text-decoration: none;
+    color: #222;
+    font-size: 2rem;
+}
+.avatar {
+    border-radius: 10px;
+    background: skyblue;
+    text-align: center;
+    
+}
+.avatar img {
+    vertical-align: bottom;
+}
+
+
+.character-page h2
+{
+    font-size: 2.8rem;
+    color: #1f1f1f;
+    text-align: center;
+}
+
+.character-page h3 {
+    color: #5e5e5e;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+.house-logo 
+{
+    border-radius: 10px;
+}
+.house-logo a {
+    display: block;
+}
+
+
+.houses .house-logo {
+    width: 7rem;
+    height: 7rem;
+    display: inline-block;
+}
+
+.houses-list .house-logo {
+    width: 90%;
+    display: block;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.houses-list a {
+    display: block;
+    height: 100%;
+}
+.meta span {
+    font-weight: bold;
+}
+
+.name {
+    background: rgb(243, 227, 133);
+    position: relative;
+    top: -15px;
+    padding: 1rem;
+    display: inline;
+    font-size: 1.5rem;
+}
+
+@media screen and (min-width: 700px ) {
+    .characters-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .character-card {
+        width: 50%;
+    }
+    .character-page {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .character-page h3 {
+        font-size: 1.5rem;
+        text-align: left;
+    
+    }
+    .houses-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .houses-list .house-logo {
+        width: calc(100% / 3 - 2rem);
+        margin: 0 1rem 1rem
+    }
+    .col-8{
+        width: 66.666667%;
+    }
+    .col-4 {
+        width: calc(100% / 3);
+        padding-left: 3rem;
+    }
+}
+
+
+@media screen and (min-width: 1100px ) {
+
+    .character-card {
+        width: calc(100% / 3);
+    }
+    .wrapper {
+        max-width: 1100px;
+    } 
+}
