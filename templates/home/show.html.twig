@@ -32,13 +32,13 @@
                                             </ul>
                 </div>
                 <ul class="meta">
-                    <li><span>Rang : </span> 
+                    <li><span>Rang : </span> {{theCharacter.title.name}}
                                                     
                                                      </li>
                     
-                    <li><span>Mère : </span> {#{% for mother in thecharacter.characters %}
-                                                    {{ theCharacter.mother}}    
-                                                    {% endfor %}    #}    
+                    <li><span>Mère : </span> 
+                                                    {% dump(theCharacter.mother)%}    
+                                                       
                                                     Non renseigné                  
                                             </li>
                                            
