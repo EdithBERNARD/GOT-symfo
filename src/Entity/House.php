@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HouseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class House
      * @ORM\Column(type="string", length=255)
      */
     private $colour;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Character::class, mappedBy="houses")
+     */
+    private $characters;
+
+    public function __construct()
+    {
+        $this->characters = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,33 @@ class House
     public function setColour(string $colour): self
     {
         $this->colour = $colour;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Character>
+     */
+    public function getCharacters(): Collection
+    {
+        return $this->characters;
+    }
+
+    public function addCharacters(Character $characters): self
+    {
+        if (!$this->characters->contains($characters)) {
+            $this->characters[] = $characters;
+            $characters->addHouse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCharacters(Character $characters): self
+    {
+        if ($this->characters->removeElement($characters)) {
+            $characters->removeHouse($this);
+        }
 
         return $this;
     }

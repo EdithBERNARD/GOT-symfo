@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CharacterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +50,43 @@ class Character
      */
     private $biography;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Character::class, inversedBy="motherChilds")
+     */
+    private $mother;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="mother")
+     */
+    private $motherChilds;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Character::class, inversedBy="fatherChilds")
+     */
+    private $father;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Character::class, mappedBy="father")
+     */
+    private $fatherChilds;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=House::class, inversedBy="characters")
+     */
+    private $houses;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Title::class, inversedBy="characters")
+     */
+    private $title;
+
+    public function __construct()
+    {
+        $this->motherChilds = new ArrayCollection();
+        $this->fatherChilds = new ArrayCollection();
+        $this->houses = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -65,12 +104,12 @@ class Character
         return $this;
     }
 
-    public function getUpdated�At(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function setUpdated�At(?\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
@@ -121,6 +160,126 @@ class Character
     public function setBiography(string $biography): self
     {
         $this->biography = $biography;
+
+        return $this;
+    }
+
+    public function getMother(): ?self
+    {
+        return $this->mother;
+    }
+
+    public function setMother(?self $mother): self
+    {
+        $this->mother = $mother;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getMotherChilds(): Collection
+    {
+        return $this->motherChilds;
+    }
+
+    public function addMotherChild(self $motherChild): self
+    {
+        if (!$this->motherChilds->contains($motherChild)) {
+            $this->motherChilds[] = $motherChild;
+            $motherChild->setMother($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMotherChild(self $motherChild): self
+    {
+        if ($this->motherChilds->removeElement($motherChild)) {
+            // set the owning side to null (unless already changed)
+            if ($motherChild->getMother() === $this) {
+                $motherChild->setMother(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getFather(): ?self
+    {
+        return $this->father;
+    }
+
+    public function setFather(?self $father): self
+    {
+        $this->father = $father;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getFatherChilds(): Collection
+    {
+        return $this->fatherChilds;
+    }
+
+    public function addFatherChild(self $fatherChild): self
+    {
+        if (!$this->fatherChilds->contains($fatherChild)) {
+            $this->fatherChilds[] = $fatherChild;
+            $fatherChild->setFather($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFatherChild(self $fatherChild): self
+    {
+        if ($this->fatherChilds->removeElement($fatherChild)) {
+            // set the owning side to null (unless already changed)
+            if ($fatherChild->getFather() === $this) {
+                $fatherChild->setFather(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, House>
+     */
+    public function getHouses(): Collection
+    {
+        return $this->houses;
+    }
+
+    public function addHouse(House $house): self
+    {
+        if (!$this->houses->contains($house)) {
+            $this->houses[] = $house;
+        }
+
+        return $this;
+    }
+
+    public function removeHouse(House $house): self
+    {
+        $this->houses->removeElement($house);
+
+        return $this;
+    }
+
+    public function getTitle(): ?Title
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?Title $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
