@@ -36,12 +36,21 @@
                                                     
                                                      </li>
                     
-                    <li><span>Mère : </span>    {# ! rajouter un if  pour le cas ou on a pas l'info #}
-                                                    {{ theCharacter.mother.firstName }} {{ theCharacter.mother.lastName }}     
+                    <li><span>Mère : </span>    {# todo rajouter un if  pour le cas ou on a pas l'info #}
+                                                    {% if theCharacter.mother %}  
+                                                        {{ theCharacter.mother.firstName }} {{ theCharacter.mother.lastName }}  
+                                                    {% else %}    
+                                                            Non renseigné
+                                                    {% endif %} 
                                             </li>
                                            
-                    <li><span>Père : </span>    {# ! rajouter un if  pour le cas ou on a pas l'info #}
-                                                    {{ theCharacter.father.firstName }} {{ theCharacter.father.lastName }}                             
+                    <li><span>Père : </span>    {# todo rajouter un if  pour le cas ou on a pas l'info #}
+                                                    {% if theCharacter.father %}  
+                                                            {{ theCharacter.father.firstName }} {{ theCharacter.father.lastName }}    
+                                                    {% else %}    
+                                                            Non renseigné
+                                                    {% endif %}
+
                                             </li>
                 </ul>
             </div>
