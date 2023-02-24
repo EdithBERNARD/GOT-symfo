@@ -44,7 +44,7 @@ class HomeController extends AbstractController
         $character = $characterRepository->find($index);
         //todo je recupère tous mes perso
         //$allCharacters = $characterRepository->findAll();
-
+        //dd($character);
         //todo je recupère toutes mes maisons
         $allHouses = $houseRepository->findAll();
 

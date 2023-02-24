@@ -36,14 +36,12 @@
                                                     
                                                      </li>
                     
-                    <li><span>Mère : </span> 
-                                                    {% dump(theCharacter.mother)%}    
-                                                       
-                                                    Non renseigné                  
+                    <li><span>Mère : </span>    {# ! rajouter un if  pour le cas ou on a pas l'info #}
+                                                    {{ theCharacter.mother.firstName }} {{ theCharacter.mother.lastName }}     
                                             </li>
                                            
-                    <li><span>Père : </span> 
-                                                    Non renseigné                            
+                    <li><span>Père : </span>    {# ! rajouter un if  pour le cas ou on a pas l'info #}
+                                                    {{ theCharacter.father.firstName }} {{ theCharacter.father.lastName }}                             
                                             </li>
                 </ul>
             </div>
