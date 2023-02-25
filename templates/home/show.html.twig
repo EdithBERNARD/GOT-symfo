@@ -4,58 +4,60 @@
 
 {% block body %}
 <main>
-        <div class="wrapper">
-               <section class="character-page">
-       <div class="col-8">
-            <h2>{{ theCharacter.firstName }} {{ theCharacter.lastName }}</h2>
-            <div class="bio">
-                <h3>Biographie</h3>
-                <p> {{ theCharacter.biography }} </p>
+    <div class="wrapper">
+        <section class="character-page">
+            <div class="col-8">
+                <h2>{{ theCharacter.firstName }} {{ theCharacter.lastName }}</h2>
+                    <div class="bio">
+                        <h3>Biographie</h3>
+                        <p> {{ theCharacter.biography }} </p>
+                    </div>
             </div>
-        </div>
-        <div class="col-4">
-            <div class="avatar" style="background: #e3e3e3;">
-                <img src="{{ asset('img/' ~ theCharacter.image) }}" alt="{{ theCharacter.firstName }}">
-            </div>
-            <div class="infos">
-                <h3>Maisons</h3>
-                <div class="houses">
-                    <ul>
-                            {% for house in theCharacter.houses %}
-                                                    <li class="house-logo" style="background: #{{ house.colour }};">
-                                <a href="#/house/1">
-                                    <img src="{{ asset('img/houses/' ~ house.image) }}" alt="{{house.name}}">
-                                </a>
-                            </li>
-                            {% endfor %}
-                                
-                                            </ul>
+            <div class="col-4">
+                <div class="avatar" style="background: linear-gradient(45deg 
+                        {% for house in theCharacter.houses %}
+                            {% if house  %} , #{{ house.colour }}   , #{{ house.colour }}
+                            {% else %} , #ff00ff , #ff00ff
+                            {% endif %}
+                        {% endfor %});">
+                        <img src="{{ asset('img/' ~ theCharacter.image) }}" alt="{{ theCharacter.firstName }}">
                 </div>
-                <ul class="meta">
-                    <li><span>Rang : </span> {{theCharacter.title.name}}
-                                                    
-                                                     </li>
-                    
-                    <li><span>Mère : </span>    {# todo rajouter un if  pour le cas ou on a pas l'info #}
-                                                    {% if theCharacter.mother %}  
-                                                        {{ theCharacter.mother.firstName }} {{ theCharacter.mother.lastName }}  
-                                                    {% else %}    
-                                                            Non renseigné
-                                                    {% endif %} 
-                                            </li>
-                                           
-                    <li><span>Père : </span>    {# todo rajouter un if  pour le cas ou on a pas l'info #}
-                                                    {% if theCharacter.father %}  
-                                                            {{ theCharacter.father.firstName }} {{ theCharacter.father.lastName }}    
-                                                    {% else %}    
-                                                            Non renseigné
-                                                    {% endif %}
+                <div class="infos">
+                    <h3>Maisons</h3>
+                        <div class="houses">
+                            <ul>
+                                {% for house in theCharacter.houses %}                            
+                                    <li class="house-logo" style="background: #{{ house.colour }};">
+                                        <a href="{{ path('app_home_house', {'index' : house.id }) }}"> 
+                                            <img src="{{ asset('img/houses/' ~ house.image) }}" alt="{{house.name}}">
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                            <ul class="meta">
+                                <li><span>Rang : </span> {{theCharacter.title.name}} </li>
+                                <li><span>Mère : </span>    {# done rajouter un if  pour le cas ou on a pas l'info #}
+                                    {% if theCharacter.mother %}  
+                                        <a href="{{ path('app_home_show', {'index' : theCharacter.mother.id }) }}"> 
+                                        {{ theCharacter.mother.firstName }} {{ theCharacter.mother.lastName }} 
+                                    {% else %}    
+                                            Non renseigné
+                                    {% endif %} 
+                                </li>
+                                <li><span>Père : </span>    {# done rajouter un if  pour le cas ou on a pas l'info #}
+                                    {% if theCharacter.father %}  
+                                        <a href="{{ path('app_home_show', {'index' : theCharacter.father.id }) }}"> 
+                                        {{ theCharacter.father.firstName }} {{ theCharacter.father.lastName }}    
+                                    {% else %}    
+                                        Non renseigné
+                                    {% endif %}
 
-                                            </li>
-                </ul>
-            </div>
-        </div>
-   </section>
-        </div>
-    </main>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+        </section>
+    </div>
+</main>
 {% endblock %}

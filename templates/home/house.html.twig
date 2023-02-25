@@ -3,20 +3,23 @@
 {% block title %}Game Of Thrones !{% endblock %}
 
 {% block body %}
+
 <main>
     <div class="wrapper">
-                
+                <h2>{{ theHouse.name }}</h2>
+    
         <ul class="characters-list">
-        
-            {% for character in allCharacters  %}
+    
+            {% for character in theHouse.characters %}
+
                 <li class="character-card">
                     <a href="{{ path('app_home_show', {'index' : character.id }) }}">     
                         <div class="avatar" style="background: linear-gradient(45deg 
-                                {% for house in character.houses %}
-                                    {% if house  %} , #{{ house.colour }}   , #{{ house.colour }}
-                                    {% else %} , #ff00ff , #ff00ff
-                                    {% endif %}
-                                {% endfor %});">
+                        {% for house in character.houses %}
+                            {% if house  %} , #{{ house.colour }}   , #{{ house.colour }}
+                            {% else %}    , #ff00ff , #ff00ff
+                            {% endif %}
+                        {% endfor %});">
                             <img src="{{ asset('img/' ~ character.image) }}" alt="{{ character.firstName }}">
                         </div>
                         <div class="name">
@@ -25,9 +28,9 @@
                     </a>
                 </li>
             {% endfor %}
-            
-            
+           
         </ul>        
     </div>
 </main>
+
 {% endblock %}

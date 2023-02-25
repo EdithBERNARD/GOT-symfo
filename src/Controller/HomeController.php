@@ -37,31 +37,21 @@ class HomeController extends AbstractController
      * 
      * @return Reponse
      */
-    public function show($index, CharacterRepository $characterRepository,HouseRepository $houseRepository): Response
+    public function show($index, CharacterRepository $characterRepository): Response
     {
 
         //todo je cherche le bon perso dans ma BDD
         $character = $characterRepository->find($index);
-        //todo je recupère tous mes perso
-        //$allCharacters = $characterRepository->findAll();
-        //dd($character);
-        //todo je recupère toutes mes maisons
-        $allHouses = $houseRepository->findAll();
-
-        //$allTitles = $titleRepository->findBy([]);
+       
 
         return $this->render('home/show.html.twig', [
-            "theCharacter" => $character,
-            "allHouses" => $allHouses,
-            //"allCharacters" => $allCharacters,
-            //"allTitles" => $allTitles
-            
+            "theCharacter" => $character
         ]);
     }
     //TODO : route "" : affiche l'ensmble des maisons
     // TODO : route index : affiche l'ensemble des perso
     /**
-     * @Route("/house", name="app_home_list")
+     * @Route("/houses", name="app_home_list")
      * 
      * @return Reponse
      */
@@ -76,4 +66,24 @@ class HomeController extends AbstractController
     }
 
     //TODO : route "" : affiche les perso d'une maison (id maison)
+    /**
+     * @Route("/house/{index}", name="app_home_house", requirements={"index"="\d+"})
+     * 
+     * @return Reponse
+     */
+    public function house($index,CharacterRepository $characterRepository, HouseRepository $houseRepository): Response
+    {
+
+        //todo je recupère toutes mes maisons
+        $theHouse = $houseRepository->find($index);
+        //dd($theHouse);
+        //todo je recupère tous mes perso
+        $allCharacters = $characterRepository->findAll();
+        return $this->render('home/house.html.twig', [
+            "allCharacters" => $allCharacters,
+            "theHouse" => $theHouse
+        ]);
+    }
+
+
 }

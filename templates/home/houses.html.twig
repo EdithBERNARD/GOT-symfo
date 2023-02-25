@@ -8,7 +8,7 @@
             <ul class="houses-list">
                 {% for house in allHouses  %}
                     <li class="house-logo" style="background:#{{ house.colour }};">
-                        <a href="#/house/1">
+                        <a href="{{ path('app_home_house', {'index' : house.id }) }}">
                             <img src="{{ asset('img/houses/' ~ house.image) }}" alt="{{ house.name }}">
                         </a>
                     </li>
