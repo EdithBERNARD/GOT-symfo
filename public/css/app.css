@@ -47,6 +47,13 @@ nav li:first-child:after {
     margin-left: 1rem;
 
 }
+nav li:last-child:before {
+    content: "-";
+    font-size: 2em;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
 nav ul {
     text-align: center;
 }

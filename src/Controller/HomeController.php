@@ -48,8 +48,9 @@ class HomeController extends AbstractController
             "theCharacter" => $character
         ]);
     }
-    //TODO : route "" : affiche l'ensmble des maisons
-    // TODO : route index : affiche l'ensemble des perso
+
+
+    //TODO : route "houses" : affiche l'ensmble des maisons
     /**
      * @Route("/houses", name="app_home_list")
      * 
@@ -65,23 +66,53 @@ class HomeController extends AbstractController
         ]);
     }
 
-    //TODO : route "" : affiche les perso d'une maison (id maison)
+    //TODO : route "house" : affiche les perso d'une maison (id maison)
     /**
      * @Route("/house/{index}", name="app_home_house", requirements={"index"="\d+"})
      * 
      * @return Reponse
      */
-    public function house($index,CharacterRepository $characterRepository, HouseRepository $houseRepository): Response
+    public function house($index, HouseRepository $houseRepository): Response
+    {
+
+        // done je recupère toutes mes maisons
+        $theHouse = $houseRepository->find($index);
+        //dd($theHouse);
+        
+        return $this->render('home/house.html.twig', [
+            "theHouse" => $theHouse
+        ]);
+    }
+
+    //TODO : route "houses" : affiche l'ensmble des maisons
+    /**
+     * @Route("/titles", name="app_home_titles")
+     * 
+     * @return Reponse
+     */
+    public function titles(TitleRepository $titleRepository): Response
     {
 
         //todo je recupère toutes mes maisons
-        $theHouse = $houseRepository->find($index);
-        //dd($theHouse);
-        //todo je recupère tous mes perso
-        $allCharacters = $characterRepository->findAll();
-        return $this->render('home/house.html.twig', [
-            "allCharacters" => $allCharacters,
-            "theHouse" => $theHouse
+        $allTitles= $titleRepository->findAll();
+        return $this->render('home/titles.html.twig', [
+            "allTitles" => $allTitles
+        ]);
+    }
+
+    //TODO : route "title" : affiche l'ensmble des maisons
+    /**
+     * @Route("/title/{index}", name="app_home_title", requirements={"index"="\d+"})
+     * 
+     * @return Reponse
+     */
+    public function title($index, TitleRepository $titleRepository): Response
+    {
+
+        //todo je recupère toutes mes maisons
+        $theTitle= $titleRepository->find($index);
+        return $this->render('home/title.html.twig', [
+            "theTitle" => $theTitle
         ]);
     }
 
