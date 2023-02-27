@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Title;
-use App\Repository\CharacterRepository;
+use App\Entity\Character;
 use App\Repository\HouseRepository;
 use App\Repository\TitleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CharacterRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
@@ -84,7 +85,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    //TODO : route "houses" : affiche l'ensmble des maisons
+    //TODO : route "titles" : affiche la liste des titres
     /**
      * @Route("/titles", name="app_home_titles")
      * 
@@ -93,14 +94,14 @@ class HomeController extends AbstractController
     public function titles(TitleRepository $titleRepository): Response
     {
 
-        //todo je recupère toutes mes maisons
+        //todo je recupère toutes mes titres
         $allTitles= $titleRepository->findAll();
         return $this->render('home/titles.html.twig', [
             "allTitles" => $allTitles
         ]);
     }
 
-    //TODO : route "title" : affiche l'ensmble des maisons
+    //TODO : route "title" : affiche l'ensemble des perso d'un titre 
     /**
      * @Route("/title/{index}", name="app_home_title", requirements={"index"="\d+"})
      * 
@@ -115,6 +116,31 @@ class HomeController extends AbstractController
             "theTitle" => $theTitle
         ]);
     }
+
+    //TODO : route "add" : affiche le form pour la création d'un perso
+    /**
+     * @Route("/add", name="app_character_add", methods={"GET", "POST"})
+     * 
+     * @return Reponse 
+     */
+    public function add(Request $request, CharacterRepository $characterRepository )
+    {
+        // avant de créer le formulaire, je pré-créer un objet qui sera associé aux valeurs du formulaire
+        $newCharacter = new Character(); 
+
+        // on créer un formulaire depuis un Type de formulaire ET une entité
+        $form = $this->createForm(CharacterType::class, $newCharacter);
+
+        // DEBUG mon entité est remplit
+        //dd($newCharacter);
+
+        // TODO : afficher un formulaire
+        //? https://symfony.com/doc/5.4/forms.html#rendering-forms
+        return $this->renderForm("home/add.html.twig", [
+            "formulaire" => $form
+        ]);
+    }
+
 
 
 }
