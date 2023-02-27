@@ -36,7 +36,10 @@
                             </ul>
                         </div>
                             <ul class="meta">
-                                <li><span>Rang : </span> {{theCharacter.title.name}} </li>
+                                <li><span>Rang : </span> 
+                                    <a href="{{ path('app_home_title', {'index' : theCharacter.title.id }) }}">
+                                    {{theCharacter.title.name}} 
+                                </li>
                                 <li><span>Mère : </span>    {# done rajouter un if  pour le cas ou on a pas l'info #}
                                     {% if theCharacter.mother %}  
                                         <a href="{{ path('app_home_show', {'index' : theCharacter.mother.id }) }}"> 

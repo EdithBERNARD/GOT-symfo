@@ -5,19 +5,9 @@
 {% block body %}
 <main>
     <div class="wrapper">
-                
-        <ul class="characters-list">
 
-            {% for character in allCharacters  %}
-                <div id="list">
-                {% block list %}
-                {% include 'listCharacters.html.twig' %}
-                {% endblock %}
-                </div>
-            {% endfor %}
-            
-            
-        </ul>        
+                {% include '_listCharacters.html.twig' with {'allCharacters': allCharacters } %}
+
     </div>
 </main>
 {% endblock %}

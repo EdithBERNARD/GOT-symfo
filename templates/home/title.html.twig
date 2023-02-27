@@ -7,16 +7,9 @@
 <main>
     <div class="wrapper">
                 <h2>{{ theTitle.name }}</h2>
-    
-        <ul class="characters-list">
-    
-            {% for character in theTitle.characters %}
-                {% block list %}
-                    {% include 'listCharacters.html.twig' %}
-                {% endblock %}
-            {% endfor %}
-           
-        </ul>        
+
+                    {% include '_listCharacters.html.twig' with {'allCharacters': theTitle.characters } %}
+            
     </div>
 </main>
 

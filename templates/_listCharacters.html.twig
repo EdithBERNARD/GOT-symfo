@@ -1,0 +1,28 @@
+
+    
+<ul class="characters-list">
+
+            {% for character in allCharacters  %}
+                <div id="list">
+
+                <li class="character-card">
+                    <a href="{{ path('app_home_show', {'index' : character.id }) }}">     
+                        <div class="avatar" style="background: linear-gradient(45deg 
+                                {% for house in character.houses %}
+                                    {% if house  %} , #{{ house.colour }}   , #{{ house.colour }}
+                                    {% else %} , #ff00ff , #ff00ff
+                                    {% endif %}
+                                {% endfor %});">
+                            <img src="{{ asset('img/' ~ character.image) }}" alt="{{ character.firstName }}">
+                            </div>
+                            <div class="name">
+                            {{ character.firstName }} {{ character.lastName }} 
+                        </div>
+                    </a>
+                </li>
+
+                </div>
+            {% endfor %}
+            
+            
+        </ul>        
