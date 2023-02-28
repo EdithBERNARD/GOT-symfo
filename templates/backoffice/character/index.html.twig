@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Character index{% endblock %}
+
+{% block body %}
+    <h1>Character index</h1>
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
+<a class="btn btn-outline-light" href="{{ path('app_backoffice_character_new') }}">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>LastName</th>
+                <th>FirstName</th>
+                <th>Image</th>
+                <th>Biography</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for character in characters %}
+            <tr>
+                <td>{{ character.id }}</td>
+                <td>{{ character.createdAt ? character.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ character.updatedAt ? character.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ character.lastName }}</td>
+                <td>{{ character.firstName }}</td>
+                <td>{{ character.image }}</td>
+                <td>{{ character.biography }}</td>
+                <td>
+                    <a class="btn btn-outline-light" href="{{ path('app_backoffice_character_show', {'id': character.id}) }}">show</a>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-light" href="{{ path('app_backoffice_character_edit', {'id': character.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    
+{% endblock %}

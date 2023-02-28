@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Ajout d'article</h1>
+
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
+    <h2>Ajout d'un Personnage</h2>
+    <div class="separator"></div>
+    <div class="container">
+        {{ form_start(formulaire) }}
+            {{ form_row(formulaire.lastName) }}
+            {{ form_row(formulaire.firstName) }} 
+            {{ form_row(formulaire.image) }} 
+            {{ form_row(formulaire.biography) }} 
+            {{ form_row(formulaire.title) }} 
+            <button type="submit" class="btn btn-outline-light">Ajouter</button> 
+        {{ form_end(formulaire) }}
+    </div>
+    </div>
+
 
 
 {% endblock %}

@@ -4,9 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Title;
 use App\Entity\Character;
+use App\Form\CharacterType;
+//use Doctrine\ORM\EntityManager;
 use App\Repository\HouseRepository;
 use App\Repository\TitleRepository;
 use App\Repository\CharacterRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -123,7 +127,7 @@ class HomeController extends AbstractController
      * 
      * @return Reponse 
      */
-    public function add(Request $request, CharacterRepository $characterRepository )
+    public function add(Request $request, CharacterRepository $characterRepository, EntityManagerInterface $entityManager )
     {
         // avant de créer le formulaire, je pré-créer un objet qui sera associé aux valeurs du formulaire
         $newCharacter = new Character(); 
@@ -133,6 +137,30 @@ class HomeController extends AbstractController
 
         // DEBUG mon entité est remplit
         //dd($newCharacter);
+        $form->handleRequest($request);
+
+        // je vérifie que le formulaire a été soumis
+        //  Si j'avais plusieur formulaire sur la même page
+        // on pourrait tester les formulaire individuellement
+        // alors que le test sur la méthode=POST, ne suffirait pas
+        if ($form->isSubmitted() )
+        {
+            dd($newCharacter);
+            // Dans les fixture j'ai un manager pour faire le persist et le flush
+            // ? https://symfony.com/doc/current/doctrine.html#persisting-objects-to-the-database
+            // On a aussi le repository qui nous permet de faire l'ajout
+            // TODO : persist : CharacterRepository
+            $entityManager->persist($newCharacter);
+
+            $entityManager->flush();
+
+            // TODO : flush => fait avec le add du repository
+            $characterRepository->add($newCharacter, true);
+
+            // TODO après un ajout, faire une redirection
+            // j'ai l'id de mon nouvel objet à jour car j'ai fait un flush avant
+            return $this->redirectToRoute("app_home");
+        }
 
         // TODO : afficher un formulaire
         //? https://symfony.com/doc/5.4/forms.html#rendering-forms

@@ -4,11 +4,13 @@
 
 {% block body %}
 <main>
+
         <div class="wrapper">
+
             <ul class="houses-list">
                 {% for title in allTitles  %}
-                    <li class="house-logo" style="background: #999;">
-                        <a href="{{ path('app_home_title', {'index' : title.id }) }}">
+                    <li class="house-logo name btn-outline-light" >
+                        <a  href="{{ path('app_home_title', {'index' : title.id }) }}">
                             {{ title.name }}
                         </a>
                     </li>

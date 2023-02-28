@@ -11,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class CharacterType extends AbstractType
+class Character1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -48,10 +48,6 @@ class CharacterType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Character::class,
-            // on désactive la validation HTML 5
-            'attr' =>[
-                'novalidate' => 'novalidate'
-            ]
         ]);
     }
 }
