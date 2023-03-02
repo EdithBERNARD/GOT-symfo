@@ -2,11 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\House;
 use App\Entity\Title;
 use App\Entity\Character;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -28,9 +29,23 @@ class Character1Type extends AbstractType
                 'empty_data' => ""
             ])
             ->add('biography', TextareaType::class)
-            // ->add('mother')
-            // ->add('father')
-            // ->add('houses')
+            ->add('mother', EntityType::class, [
+                'class' => Character::class,
+                'choice_label' => 'name',
+            ])
+            ->add('father', EntityType::class, [
+                'class' => Character::class,
+                'choice_label' => 'name',
+            ])
+            ->add('houses', EntityType::class, [
+                'class' => House::class,
+                // ? https://symfony.com/doc/5.4/reference/forms/types/choice.html#select-tag-checkboxes-or-radio-buttons
+                // ! Notice: Array to string conversion
+                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+
+            ])
 
             //liste des titres (champ déroulant) c'est un EntityType
             ->add('title', EntityType::class, [

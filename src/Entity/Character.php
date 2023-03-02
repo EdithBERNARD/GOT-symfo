@@ -283,4 +283,9 @@ class Character
 
         return $this;
     }
+
+    public function name(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
 }
