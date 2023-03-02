@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit House{% endblock %}
+
+{% block body %}
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
+    <h1>Edit House</h1>
+
+    {{ include('backoffice/house/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-outline-light" href="{{ path('app_backoffice_house_index') }}">back to list</a>
+
+    {{ include('backoffice/house/_delete_form.html.twig') }}
+{% endblock %}

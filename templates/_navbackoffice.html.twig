@@ -1,36 +1,99 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(9, 163, 150)";>
     <div class="container-fluid">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a href="{{ path('app_backoffice_character_index') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none header-logo">
+            <a href="{{ path('app_backoffice_admin') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none header-logo">
                 <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>" height="24" alt="Logo GOT">
                 <span class="header-logo__title">SO'GOT</span>
-            </a>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown">
-                        <span>Charles</span>
-                        <i class="bi bi-person-square"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                        <li><a class="dropdown-item" href="#">Backoffice</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Déconnexion</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    
+                        
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ path("app_backoffice_admin") }}">Accueil</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown">
+                                    <span>Characters</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_character_index") }}">All Characters</a></li>
+                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_character_new") }}">Create Character</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-bs-toggle="dropdown">
+                                        <span>Houses</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_house_index")}}">All Houses</a></li>
+                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_house_new")}}">Create House</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-bs-toggle="dropdown">
+                                        <span>Titles</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_title_index")}}">All Titles</a></li>
+                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_title_new")}}">Create Title</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                    </ul>
+                                </li>
+                        
+                            
+                   
+                </ul>
 
-            <button type="button" class="btn btn-outline-light me-2">Connexion</button>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            {% dump(app.user) %}
+                            <span></span>
+                            <i class="bi bi-person-square"></i>
+                        </a>
 
-            <form class="d-flex" action="list.html">
-                <input class="form-control form-control-sm me-2" name="search" type="search" placeholder="Rechercher...">
-                <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
-            </form>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_backoffice_admin')}}">Backoffice</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ path('app_logout')}}">Déconnexion</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+
+                <a href="{{ path('app_login')}}" class="btn btn-outline-light me-2">Connexion</a>
+
+                <form class="d-flex" action="list.html">
+                    <input class="form-control form-control-sm me-2" name="search" type="search" placeholder="Rechercher...">
+                    <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
+
+  
+        
+           
+

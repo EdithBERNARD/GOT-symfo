@@ -28,7 +28,7 @@
                 <td>{{ character.lastName }}</td>
                 <td>{{ character.firstName }}</td>
                 <td>{{ character.image }}</td>
-                <td>{{ character.biography }}</td>
+                <td>{{ character.biography|slice(0, 150) }} [...]</td>
                 <td>
                     <a class="btn btn-outline-light" href="{{ path('app_backoffice_character_show', {'id': character.id}) }}">show</a>
                     <br>

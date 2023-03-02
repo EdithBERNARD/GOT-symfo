@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div class="wrapper-form d-flex justify-content-around" style="background-color: rgb(9, 163, 150)">
+    <div class="card d-flex justify-content-around" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Characters</h5>
+            <a href="{{ path('app_backoffice_character_index')}}" class="btn " style="background-color: rgb(9, 163, 150)">All Characters</a>
+            <br> <br>
+            <a href="{{ path('app_backoffice_character_new')}}" class="btn " style="background-color: rgb(9, 163, 150)">Add Character</a>
+        </div>
+    </div>
+    <div class="card d-flex justify-content-around" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Houses</h5>
+            <a href="{{ path('app_backoffice_house_index')}}" class="btn " style="background-color: rgb(9, 163, 150)">All Houses</a>
+            <br> <br>
+            <a href="{{ path('app_backoffice_house_new')}}" class="btn " style="background-color: rgb(9, 163, 150)">Add House</a>
+        </div>
+    </div>
+    <div class="card d-flex justify-content-around" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Titles</h5>
+            <a href="{{ path('app_backoffice_title_index')}}" class="btn " style="background-color: rgb(9, 163, 150)">All Titles</a>
+            <br> <br>
+            <a href="{{ path('app_backoffice_title_new')}}" class="btn " style="background-color: rgb(9, 163, 150)">Add Titles</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

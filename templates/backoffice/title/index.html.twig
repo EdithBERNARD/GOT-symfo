@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Title index{% endblock %}
+
+{% block body %}
+    <h1>Title index</h1>
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
+<a class="btn btn-outline-light" href="{{ path('app_backoffice_title_new') }}">Create new</a>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for title in titles %}
+            <tr>
+                <td>{{ title.id }}</td>
+                <td>{{ title.createdAt ? title.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ title.updatedAt ? title.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ title.name }}</td>
+                <td>
+                    <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_show', {'id': title.id}) }}">show</a>
+                    <br><br>
+                
+                    <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_edit', {'id': title.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

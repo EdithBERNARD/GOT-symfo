@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <h1>House index</h1>
+    <div class="wrapper-form" style="background: rgb(9, 163, 150);">
+    <a class="btn btn-outline-light" href="{{ path('app_backoffice_house_new') }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Colour</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for house in houses %}
+            <tr>
+                <td>{{ house.id }}</td>
+                <td>{{ house.createdAt ? house.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ house.updatedAt ? house.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ house.name }}</td>
+                <td>{{ house.image }}</td>
+                <td>{{ house.colour }}</td>
+                <td>
+                    <a class="btn btn-outline-light" href="{{ path('app_backoffice_house_show', {'id': house.id}) }}">show</a>
+                    <br><br>
+                    <a class="btn btn-outline-light" href="{{ path('app_backoffice_house_edit', {'id': house.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Title{% endblock %}
+
+{% block body %}
+    <h1>Title</h1>
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ title.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ title.createdAt ? title.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ title.updatedAt ? title.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ title.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_index') }}">back to list</a>
+<br><br>
+    <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_edit', {'id': title.id}) }}">edit</a>
+<br>
+    {{ include('backoffice/title/_delete_form.html.twig') }}
+{% endblock %}

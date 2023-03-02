@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Character</h1>
-
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
     <table class="table">
         <tbody>
             <tr>
@@ -36,11 +36,15 @@
                 <td>{{ character.biography }}</td>
             </tr>
         </tbody>
-    </table>
-
-    <a href="{{ path('app_backoffice_character_index') }}">back to list</a>
-
-    <a href="{{ path('app_backoffice_character_edit', {'id': character.id}) }}">edit</a>
-
+        
+        </table>
+         <a class="btn btn-outline-light" href="{{ path('app_backoffice_character_index') }}">back to list</a>
+<br><br>
+    <a  class="btn btn-outline-light" href="{{ path('app_backoffice_character_edit', {'id': character.id}) }}">edit</a>
+<br>
     {{ include('backoffice/character/_delete_form.html.twig') }}
+    
+</div>
+
+   
 {% endblock %}

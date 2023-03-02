@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Title{% endblock %}
+
+{% block body %}
+<div class="wrapper-form" style="background: rgb(9, 163, 150);">
+    <h1>Edit Title</h1>
+
+    {{ include('backoffice/title/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_index') }}">back to list</a>
+
+    {{ include('backoffice/title/_delete_form.html.twig') }}
+{% endblock %}
