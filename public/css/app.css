@@ -44,8 +44,8 @@ ul {
     padding: 0;
 }
 nav a {
-    text-transform: uppercase;
-    font-size: 1.5rem;
+    text-transform:capitalize ;
+    font-size: 1.2rem;
 }
 nav li {
     display: inline-block;

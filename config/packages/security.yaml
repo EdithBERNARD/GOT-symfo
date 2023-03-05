@@ -34,6 +34,7 @@ security:
     access_control:
         - { path: ^/add, roles: ROLE_USER }
         - { path: ^/backoffice/admin, roles: ROLE_USER }
+        - { path: ^/backoffice/user, roles: ROLE_ADMIN }
         - { path: (/new$|/edit$), roles: ROLE_MANAGER}
         - { path: ^/backoffice/(character|house|title)/\d+, roles: ROLE_MANAGER, methods: [GET] }
         - { path: ^/backoffice/(character|house|title)/\d+, roles: ROLE_ADMIN, methods: [POST] }

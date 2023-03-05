@@ -10,55 +10,65 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    
-                        
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="{{ path("app_backoffice_admin") }}">Accueil</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown">
-                                    <span>Characters</span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_character_index") }}">All Characters</a></li>
-                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_character_new") }}">Create Character</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown">
-                                        <span>Houses</span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_house_index")}}">All Houses</a></li>
-                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_house_new")}}">Create House</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown">
-                                        <span>Titles</span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_title_index")}}">All Titles</a></li>
-                                        <li><a class="dropdown-item" href="{{ path("app_backoffice_title_new")}}">Create Title</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                    </ul>
-                                </li>
-                        
-                            
-                   
+                    <li class="nav-item">
+                        <a class="nav-link active " href="{{ path("app_backoffice_admin") }}">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown">
+                        <span>Characters</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_character_index") }}">All Characters</a></li>
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_character_new") }}">Create Character</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <span>Houses</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_house_index")}}">All Houses</a></li>
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_house_new")}}">Create House</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <span>Titles</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_title_index")}}">All Titles</a></li>
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_title_new")}}">Create Title</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                    {% if is_granted("ROLE_ADMIN")%}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <span>Users</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_user_index")}}">All Users</a></li>
+                            <li><a class="dropdown-item" href="{{ path("app_backoffice_user_new")}}">Create User</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li> 
+                    {% endif %}
                 </ul>
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -82,13 +92,17 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ path('app_logout')}}">Déconnexion</a></li>
+                            {% for role in app.user.roles %}
+                                <li class="dropdown-item">{{ role|slice(5,)|lower }}</li>
+                            {% endfor %}
+                           
                         </ul>
 
                     </li>
                 </ul>
 
                 <a href="{{ path('app_login')}}" class="btn btn-outline-light me-2">Connexion</a>
+                <a class="btn btn-outline-light me-2" href="{{ path('app_logout')}}">Déconnexion</a>
 
                 <form class="d-flex" action="list.html">
                     <input class="form-control form-control-sm me-2" name="search" type="search" placeholder="Rechercher...">
