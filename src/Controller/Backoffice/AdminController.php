@@ -13,6 +13,12 @@ class AdminController extends AbstractController
      */
     public function index(): Response
     {
+        if(!$this->isGranted("ROLE_MANAGER"))
+        {
+            return $this->redirectToRoute("default");
+        }
+
+
         return $this->render('backoffice/admin/index.html.twig', [
             'controller_name' => 'AdminController',
         ]);

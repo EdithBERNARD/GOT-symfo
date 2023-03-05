@@ -11,8 +11,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
+                
                 <th>Name</th>
                 <th>actions</th>
             </tr>
@@ -21,14 +20,16 @@
         {% for title in titles %}
             <tr>
                 <td>{{ title.id }}</td>
-                <td>{{ title.createdAt ? title.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ title.updatedAt ? title.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                
                 <td>{{ title.name }}</td>
                 <td>
                     <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_show', {'id': title.id}) }}">show</a>
-                    <br><br>
+                  
                 
                     <a class="btn btn-outline-light" href="{{ path('app_backoffice_title_edit', {'id': title.id}) }}">edit</a>
+                    {% if is_granted("ROLE_ADMIN")%}
+                    {{ include('backoffice/title/_delete_form.html.twig') }}
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

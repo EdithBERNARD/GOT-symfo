@@ -29,6 +29,7 @@ img {
 h1{
     text-align: center;
     font-size: 4rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
 }
 h2{
@@ -74,7 +75,7 @@ nav ul {
     height: 1px;
     width: 35%;
     background: #222;
-    margin: 2rem auto;
+    margin: 3rem auto;
 }
 .character-card {
     min-width: 300px;
@@ -88,7 +89,7 @@ nav ul {
     font-size: 2rem;
 }
 .avatar {
-    border-radius: 10px;
+    border-radius: 150px;
     background: rgb(9, 163, 150);
     text-align: center;
     

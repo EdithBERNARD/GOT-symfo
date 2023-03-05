@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     // TODO : route index : affiche l'ensemble des perso
     /**
      * @Route("/", name="app_home_index")
-     * 
+     * @Route("/", name="default")
      * @return Reponse
      */
     public function index(CharacterRepository $characterRepository): Response

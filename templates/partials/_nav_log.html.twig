@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(9, 163, 150)";>
+    <div class="container-fluid">
+
+            <a href="{{ path('default') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none header-logo">
+                <img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>" height="24" alt="Logo GOT">
+                <span class="header-logo__title">SO'GOT&CO</span>
+            </a>          
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                       
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('default') }}">Personnages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('app_home_list') }}">Maisons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('app_home_titles') }}">Titres</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                             {# if app.user != null #}
+                            {% if app.user %}
+                                {% dump(app.user) %}
+                                <span>{{ app.user.email }}</span>
+                                <i class="bi bi-person-square"></i>
+                            {% else %}
+                                <span>Anonyme</span>
+                                <i class="bi bi-person-square"></i>
+                            {% endif %}
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_backoffice_admin')}}">Backoffice</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ path('app_logout')}}">Déconnexion</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+
+                <a href="{{ path('app_login')}}" class="btn btn-outline-light me-2">Connexion</a>
+
+                <form class="d-flex" action="list.html">
+                    <input class="form-control form-control-sm me-2" name="search" type="search" placeholder="Rechercher...">
+                    <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+  
+        
+           
+

@@ -7,8 +7,9 @@
     
         <div class="wrapper ">
         <br>
+        {% if app.user %}
         <h2 ><a class="name btn-outline-light" href="{{ path('app_character_add') }}" style="background: rgb(9, 163, 150);">Ajouter un Personnages</a></h2>
-
+        {% endif %}
                     {% include '_listCharacters.html.twig' with {'allCharacters': allCharacters } %}
 
         </div>

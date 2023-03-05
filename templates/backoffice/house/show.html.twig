@@ -38,7 +38,8 @@
 <br><br>
     <a class="btn btn-outline-light" href="{{ path('app_backoffice_house_edit', {'id': house.id}) }}">edit</a>
 <br>
+    {% if is_granted("ROLE_ADMIN")%}
     {{ include('backoffice/house/_delete_form.html.twig') }}
-
+    {% endif %}
     </div>
 {% endblock %}
