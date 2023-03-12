@@ -4,7 +4,9 @@ namespace App\Controller\Backoffice;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\UserCreateType;
 use App\Repository\UserRepository;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,16 +31,27 @@ class UserController extends AbstractController
     /**
      * @Route("/new", name="app_backoffice_user_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, UserRepository $userRepository): Response
+    public function new(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasherInterface): Response
     {
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserCreateType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository->add($user, true);
 
-            return $this->redirectToRoute('app_backoffice_user_index', [], Response::HTTP_SEE_OTHER);
+            $password = $form->get("password")->getData();
+            $passwordConfirmed = $form->get("password_confirmed")->getData();
+            if ($password === $passwordConfirmed){
+                $hashedPassword=$userPasswordHasherInterface->hashPassword($user,$password);
+                $user->setPassword($hashedPassword);
+
+                $userRepository->add($user, true);
+
+                return $this->redirectToRoute('app_backoffice_user_index', [], Response::HTTP_SEE_OTHER);
+            }
+            
+            $form->addError(new FormError("Les mots de passe ne correspondent pas."));
+           
         }
 
         return $this->renderForm('backoffice/user/new.html.twig', [

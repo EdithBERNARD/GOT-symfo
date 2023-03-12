@@ -29,14 +29,15 @@ class Character1Type extends AbstractType
                 'empty_data' => ""
             ])
             ->add('biography', TextareaType::class)
-            ->add('mother', EntityType::class, [
-                'class' => Character::class,
-                'choice_label' => 'name',
-            ])
-            ->add('father', EntityType::class, [
-                'class' => Character::class,
-                'choice_label' => 'name',
-            ])
+            // ->add('mother', EntityType::class, [
+            //     'class' => Character::class,
+            //     'choice_label' => 'name',
+            //     //'empty_data' => ""
+            // ])
+            // ->add('father', EntityType::class, [
+            //     'class' => Character::class,
+            //     'choice_label' => 'name',
+            // ])
             ->add('houses', EntityType::class, [
                 'class' => House::class,
                 // ? https://symfony.com/doc/5.4/reference/forms/types/choice.html#select-tag-checkboxes-or-radio-buttons

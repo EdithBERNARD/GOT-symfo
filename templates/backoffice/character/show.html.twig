@@ -35,6 +35,20 @@
                 <th>Biography</th>
                 <td>{{ character.biography }}</td>
             </tr>
+            <tr>
+                <th>Mother</th>
+                <td>{% if character.mother == true %}
+                    {{ character.mother.firstName }} {{ character.mother.lastName }}
+              
+                {% endif%}</td>
+
+            </tr>
+            <tr>
+                <th>Father</th>
+                <td>{% if character.mother == true %}
+                    {{ character.father.firstName }} {{ character.father.lastName }}
+                {% endif%}</td>
+            </tr>
         </tbody>
         
         </table>
