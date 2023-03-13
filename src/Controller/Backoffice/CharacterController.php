@@ -37,6 +37,7 @@ class CharacterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $characterRepository->add($character, true);
             
 
@@ -70,13 +71,12 @@ class CharacterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // ! Child "mother" does not exist.
-            $motherChildsId=$request->request->get("exampleFormControlSelect1");
-            $motherChilds=$characterRepository->find($motherChildsId);
-            $character->setMother($motherChilds);
-            // $father=$form->get("father")->getData();
-            // $character->setFather($father);
-            // ? removeMotherChild - addMotherChild - getMother -setMother -getMotherChild
+            // ! pour le form manuel sur twig .
+            // $motherChildsId=$request->request->get("motherForm");
+            // $motherChilds=$characterRepository->find($motherChildsId);
+            // $character->setMother($motherChilds);
+            
+            
 
 
             $characterRepository->add($character, true);

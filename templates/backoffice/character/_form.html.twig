@@ -1,16 +1,17 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
   <div class="form-group">
+    {# ! pour le form manuel sur twig avec la récupération des infos sur BO characterController edit
     <label for="exampleFormControlSelect1" >Mother</label>
 
-        <select  class="form-control" name="exampleFormControlSelect1" >
+        <select  class="form-control" id="exampleFormControlSelect1" name="motherForm" >
             <option value=""></option>
             {% for character in allCharacters %}
             <option value="{{ character.id }}">{{ character.firstName }} {{ character.lastName }}</option>
             {% endfor %}
         </select>
     </div>
-     {#<div class="form-group">
+     <div class="form-group">
     <label for="exampleFormControlSelect1" >Father</label>
 
         <select  class="form-control" id="exampleFormControlSelect1" >

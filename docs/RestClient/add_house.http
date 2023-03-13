@@ -1,0 +1,8 @@
+POST http://localhost:8081/api/houses
+Content-Type: application/json
+
+{
+    "name" : "serpentard",
+    "image" : "serpentard.png",
+    "colour" : "#239649"
+}

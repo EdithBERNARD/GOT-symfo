@@ -32,6 +32,7 @@ class Character1Type extends AbstractType
             ->add('mother', EntityType::class, [
                 'class' => Character::class,
                 'choice_label' => 'name',
+                // * "required" => false     permet d'avoir une ligne de la selection vide par défaut
                 "required" => false
             ])
             ->add('father', EntityType::class, [
