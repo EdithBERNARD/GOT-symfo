@@ -71,8 +71,9 @@ class CharacterController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // ! Child "mother" does not exist.
-            // $motherChilds=$form->get("mother")->getData();
-            // $character->setMother($motherChilds);
+            $motherChildsId=$request->request->get("exampleFormControlSelect1");
+            $motherChilds=$characterRepository->find($motherChildsId);
+            $character->setMother($motherChilds);
             // $father=$form->get("father")->getData();
             // $character->setFather($father);
             // ? removeMotherChild - addMotherChild - getMother -setMother -getMotherChild
