@@ -189,7 +189,7 @@ class HouseController extends AbstractController
                 Response::HTTP_UNPROCESSABLE_ENTITY
             );
         }
-        
+
         // * ici mon objet $house a été modifié
         // un flush et tout est bon
         $entityManager->flush();
@@ -207,5 +207,29 @@ class HouseController extends AbstractController
 
     }
 
+
+    /**
+     * @Route("/api/houses/{id}", name="app_api_house_delete", requirements={"id"="\d+"}, methods={"DELETE"})
+     */
+    public function delete(House $house = null, HouseRepository $houseRepository)
+    {
+        // 1. l'entité à supprimer : paramètre de route
+        if ($house === null){
+            // le paramConverter n'a pas trouvé l'entité : 404
+            return $this->json("Maison non trouvée", Response::HTTP_NOT_FOUND);
+        }
+
+        // pas de lecture de JSON
+        // pas de validation de données
+        // on supprime
+        $houseRepository->remove($house, true);
+
+        // on renvoit quand même un code
+        return $this->json(
+            null,
+            Response::HTTP_NO_CONTENT
+        );
+
+    }
 
 }

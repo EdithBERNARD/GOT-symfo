@@ -1,0 +1,3 @@
+DELETE http://localhost:8081/api/houses/14
+Content-Type: application/json
+
