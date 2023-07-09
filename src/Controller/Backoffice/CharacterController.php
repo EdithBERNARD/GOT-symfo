@@ -71,13 +71,6 @@ class CharacterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // ! pour le form manuel sur twig .
-            // $motherChildsId=$request->request->get("motherForm");
-            // $motherChilds=$characterRepository->find($motherChildsId);
-            // $character->setMother($motherChilds);
-            
-            
-
 
             $characterRepository->add($character, true);
 

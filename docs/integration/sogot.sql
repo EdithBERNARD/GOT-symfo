@@ -7,9 +7,9 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP DATABASE IF EXISTS `sogot`;
-CREATE DATABASE `sogot` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `sogot`;
+-- DROP DATABASE IF EXISTS `sogot`;
+-- CREATE DATABASE `sogot` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+-- USE `sogot`;
 
 DROP TABLE IF EXISTS `character`;
 CREATE TABLE `character` (
@@ -53,16 +53,7 @@ INSERT INTO `character` (`id`, `created_at`, `updated_at`, `last_name`, `first_n
 (18,	NULL,	NULL,	'Lannister',	'Tyrion',	'tyrion.png',	'Né vers l\'an 273, Tyrion Lannister, dit le Lutin, est le troisième enfant de lord Tywin Lannister et de lady Joanna Lannister.\r\n\r\nTyrion est un nain. Ses jambes difformes lui confèrent une démarche dodelinante. Ses bras trop courts ne manquent toutefois pas de force. Son front trop bombé devance sa tête disproportionnée. Ses cheveux raides et ternes, d\'un blond si pâle, peuvent paraître blancs. Enfin, il a les yeux vairons (l\'un noir, l\'autre vert) et le nez camus‎.\r\n\r\nSa mère est morte en le mettant au monde, ce qui, joint à son état de nain laid et difforme, lui vaut la rancœur et le mépris de son père. Tyrion hait son père en retour, mais il cherche aussi à gagner son estime, admiratif de ce qu\'il incarne. Il espère d\'ailleurs qu\'il sera reconnu par ce dernier comme légitime héritier de Castral Roc. Sa sœur Cersei et son fils Joffrey le détestent, ce qu\'il leur rend bien. Ceci ne l\'empêche pas de connaître extrêmement bien son aînée et de pouvoir déceler ses manifestations de peur et de désespoir. Il a, en revanche, une grande affection pour son frère Jaime, dont il est complice même s\'il connaît bien ses travers, et aime beaucoup ses neveux Tommen et Myrcella.\r\n\r\nIl est très intelligent et sait se montrer pragmatique, voire rusé. Doté d\'un sens de l\'humour et de l\'ironie très affûtés, il n\'hésite pas à railler le ridicule et l\'hypocrisie de son entourage. Son grand sens de la répartie est d\'ailleurs redouté. Courageux et opiniâtre, il peut faire preuve de sang-froid et prendre des décisions dans l\'urgence. Très conscient de sa disgrâce physique, qui provoque fréquemment moquerie ou répulsion, il est le premier à en rire. Il se fait d\'ailleurs fort de savoir admettre - a contrario de la plupart de ses contemporains - les cruelles réalités de l\'existence. En effet, il a pour coutume de dire que : « Les gens se prétendent volontiers affamés de vérité, mais ils la trouvent rarement à leur goût lorsqu\'on la leur sert. ». S\'il est lucide au sujet des avantages que la puissance et la richesse de sa famille lui procurent, il veille à ne pas en abuser. Mais sa langue bien pendue et ses mauvaises manières le mettent souvent dans des situations impossibles. Semblable à son géniteur sous de nombreux aspects, Tyrion peut se montrer fort chatouilleux sur son honneur et il ne goûte guère le fait d\'être ridiculisé. Il sait également, à l\'instar de lord Tywin, anticiper et montrer de belles capacités de tacticien, ainsi que jouer des arcanes de la diplomatie. Tyrion, bien qu\'il fasse preuve de plus d\'humanité que les membres de sa maison, n\'est pas dénué d\'ambition et prend grand plaisir à exercer le pouvoir. Jouisseur et épicurien, il apprécie les plaisirs de la chair et de la table. Il aime profondément la lecture, qu\'il voit comme le moyen d\'exercer son intelligence, son atout majeur. Insomniaque, Tyrion met souvent à profit ses nuits pour dévorer nombre d\'ouvrages concernant les thèmes les plus divers. Parmi ses sujets de prédilection figurent les dragons, à qui il voue une passion depuis sa plus tendre enfance. Afin de pouvoir monter à cheval en s\'épargnant le ridicule de chevaucher un poney, Tyrion a mis au point une selle adaptée. Il ne dédaigne pas les paris et les jeux de hasard.',	NULL,	16,	3),
 (19,	NULL,	NULL,	'Greyjoy',	'Theon',	'theon.png',	'Né en l\'an 279, Theon Greyjoy est le dernier fils vivant de lord Balon Greyjoy et de lady Alannys Harloi. Il a le teint sombre, les yeux noirs, le visage maigre et son allure est efflanquée. Béjaune séduisant et fougueux (il a un certain succès auprès des filles de taverne de Winterfell, comme Kyra), arrogant et sûr de lui, il arbore toujours un petit sourire narquois. Il est souvent léger, inconséquent et vaniteux. Pouvant se montrer impétueux et irréfléchi, Theon voue un grand mépris aux êtres précautionneux et considère que la circonspection s\'assimile à de la couardise. Il peut également s\'avérer cynique et cruel. Faisant montre d\'une goujaterie absolue avec ses conquêtes féminines, Theon est un amant indélicat et volage. Ambitieux et retors mais par trop impatient, les plans qu\'il fomente se révèlent souvent irréalistes. Son orgueil considérable l\'amène également à négliger et méconnaître bon nombre de données majeures. Sa hantise est de passer pour incompétent et couard. Il préfère d\'ailleurs être considéré comme implacable que comme naïf. C\'est un archer très doué et un combattant ne manquant pas de courage. Il apprécie la fauconnerie et ne dédaigne pas la boisson.',	NULL,	NULL,	3),
 (20,	NULL,	NULL,	'Targaryen',	'Daenerys',	'daenerys.png',	'Née en l\'an 284, Daenerys Targaryen, surnommée Daenerys du Typhon (ou Daenerys Typhon-Née), est l\'unique fille du roi Aerys II Targaryen et de la reine Rhaella Targaryen. C\'est une très belle jeune fille à la carnation claire, timide et svelte, et qui possède les yeux améthyste et les cheveux or et argent caractéristiques des Targaryen.\r\n\r\nDepuis la chute de la dynastie des Targaryen, Daenerys et son frère Viserys subsistent en exil dans les cités libres au-delà du détroit. Daenerys vit dans l\'ombre de son frère qui ne rêve que de reconquérir le Trône de Fer de leurs aïeux. N\'ayant jamais connu les Sept Couronnes, elle ne rêve pour sa part que d\'une vie tranquille semblable à celle de son enfance passée à Braavos sous la protection du bon ser Willem Darry qui la chérissait. Sa vie, faite de fuites successives, et qui l\'a contrainte avec son frère à demander l\'hospitalité aux puissants des cités libres, l\'a rendue prudente et lucide sur la nature humaine. Elle se montre bien plus consciente que son aîné des attentes de ceux qui soutiennent prétendument les derniers héritiers de la lignée de la maison Targaryen.',	NULL,	NULL,	8),
-(21,	NULL,	NULL,	'Targaryen',	'Viserys',	'viserys.png',	'Né en l\'an 276, Viserys III Targaryen, dit le Roi Gueux, est le second fils du roi Aerys II Targaryen et de la reine Rhaella Targaryen. Depuis la mort de son père et de son frère aîné, il est l\'héritier légitime des Sept Couronnes. La rébellion de Robert Baratheon l\'a contraint à s\'exiler, avec sa sœur Daenerys, dans les cités libres. Physiquement, Viserys ressemble beaucoup à feu le prince Rhaegar, mais est plus petit. Il arbore des cheveux d\'or argenté et ses yeux fiévreux couleur lilas pâle lui donnent un air peu aimable.\r\n\r\nOrgueilleux et ambitieux, il est persuadé d\'être le « dernier dragon ». Son objectif absolu est de retrouver son trône, et il est prêt à tout pour cela. Marqué par l\'exil contraint et la perte progressive de son prestige, il se montre volontiers colérique, brutal et méprisant, notamment envers sa sœur. Cependant, et bien que ces traits de caractères semblent partiellement antérieurs à l\'exil, Viserys sait aussi se montrer délicat et attentionné envers Daenerys. Abreuvé de fausses promesses par les puissants des cités libres et devenu un « phénomène de foire », Viserys a développé une profonde aigreur doublée d\'un aveuglement certain sur sa condition et ses chances de regagner un jour son trône.',	NULL,	NULL,	7),
-(22,	NULL,	NULL,	'blanche',	'neige',	'ahahah.png',	'Un livre de contes intitulé Blanche-Neige et les Sept Nains s\'ouvre et une voix entame la narration du conte de Blanche-Neige et les Sept Nains. Il explique que Blanche-Neige est une princesse vivant auprès de sa vaniteuse et malveillante belle-mère, la Reine. Courroucée et jalouse de la beauté de Blanche-Neige, elle l\'oblige à faire des tâches ménagères et à se vêtir de haillons. La Reine demande quotidiennement à son Miroir magique « Qui est la plus belle du royaume », et aime entendre en réponse qu\'il s\'agit d\'elle-même.',	14,	20,	8),
-(25,	NULL,	NULL,	'la belle',	'qui dort',	'aurore.png',	'uiubpiougobsg',	1,	1,	8),
-(26,	NULL,	NULL,	'l\'enchanteur',	'merlin',	'merlin.png',	'Merlin, un magicien qui vit avec Archimède, son hibou savant. Merlin décide qu\'il sera le tuteur de Moustique et le raccompagne ainsi chez Hector. Il tente de convaincre Hector, le père adoptif de Moustique, que la magie existe en créant un blizzard, mais Hector n\'accepte pas qu\'il devienne le tuteur de son fils. C\'est quand Merlin disparaît qu\'Hector change d\'avis. Peu après, le Sire Pélinore, un ami d\'Hector arrive au château et annonce que le tournoi annuel de chevalerie aura lieu le jour de l\'an à Londres. Le vainqueur du concours sera proclamé roi du pays. Hector propose que Kay participe au tournoi, et lui demande de s\'entraîner sérieusement, Moustique devant lui servir d\'écuyer.',	1,	1,	10),
-(27,	NULL,	NULL,	'mouse',	'mickey',	'mickey.png',	'C\'est une petite souris noire avec une salopette rouge. Ses amis sont: Dingo (un chien souvent décris comme stupide), Donald (un canard grincheux) et Pluto (le chien de Mickey Mouse)\r\n\r\nSa fiancée s\'appelle Minnie Mouse, une très jolie petite souris noire avec une robe et un nœud rouge à petits points blancs. Mickey est connu dans le monde entier. C\'est le deuxième personnage de Disney créé. Il apparaît le plus souvent dans des bandes dessinées et des dessins animés.',	5,	NULL,	11),
-(28,	NULL,	NULL,	'Marvel',	'groot',	'groot.png',	'Groot est un super-héros évoluant dans l\'univers Marvel de la maison d\'édition Marvel Comics. Créé par le scénariste Stan Lee, le dessinateur Jack Kirby et l\'encreur Dick Ayers, le personnage de fiction apparaît pour la première fois dans le comic book Tales to Astonish (vol. 1) #13 en novembre 1960.\r\n\r\nDans l\'histoire de la bande dessinée américaine, sa création date de l\'âge d\'argent des comics.\r\n\r\nLors de ses premières apparitions, Groot est décrit comme un monstre extraterrestre végétal qui sévit sur Terre. Par la suite, il est forcé de faire partie de l\'unité paranormale du SHIELD et devient membre des Howling Commandos. Groot arrive à retourner dans l\'espace où il est recruté dans le commando de Star-Lord. Enfin, il devient un des Gardiens de la Galaxie. L\'extraterrestre agit désormais au sein de cette équipe en tant que super-héros et protecteur de l\'univers.',	NULL,	1,	12),
-(29,	NULL,	NULL,	'Potter',	'Harry',	'harry.png',	'Harry est assez timide et plutôt modeste7. Il reconnaît très volontiers la difficulté, voire l\'incapacité, d\'affronter ses peurs et son principal ennemi sans l\'aide précieuse de ses amis, en particulier celle de Ron et d\'Hermione. Comme d\'autres élèves de la maison Gryffondor à laquelle il appartient, Harry sait faire preuve de courage et de discernement, même si ses sentiments l\'emportent quelquefois sur sa sagesse (comme Hermione le lui rappelle souvent). Il peut aussi lui arriver quelquefois de perdre patience et de faire exploser sa colère, notamment en cinquième année, alors qu\'il est tenu volontairement à l\'écart des événements majeurs par les membres de l\'Ordre du Phénix8, et après la mort de son parrain, alors qu\'il est retenu dans le bureau de Dumbledore9. Bien que ce dernier soit considéré comme mentor et figure de bienveillance, il arrive à plusieurs reprises que Harry et Dumbledore en viennent à hausser le ton10.',	NULL,	NULL,	10),
-(30,	NULL,	NULL,	'Weasley',	'Ron',	'ron.png',	'Ron fait partie de la famille Weasley, une famille de sang-pur, qui réside au Terrier. Dans Harry Potter à l\'école des sorciers, Ron rencontre Harry dans la gare de King\'s Cross, où il aide Harry à trouver l\'entrée secrète de la gare du monde des sorciers. Harry et Ron s\'installent dans le même compartiment du train Poudlard Express et font connaissance, posant les premières pierres de leur amitié : Ron est fasciné par le célèbre Harry Potter. C\'est dans ce même compartiment qu\'ils rencontrent tous deux Hermione Granger, qui leur paraît à première vue très antipathique mais qui devient par la suite leur amie, après qu\'ils l\'ont sauvée d\'une dangereuse confrontation avec un troll des montagnes adulte2.',	NULL,	NULL,	10),
-(32,	NULL,	NULL,	'harry',	'potpot',	'harry.png',	'efoeruiqhpiuhpuioerh',	NULL,	NULL,	10),
-(33,	NULL,	NULL,	'tyhdytu',	'rdtdy',	'fdr',	'e(nkuu',	11,	14,	1);
+(21,	NULL,	NULL,	'Targaryen',	'Viserys',	'viserys.png',	'Né en l\'an 276, Viserys III Targaryen, dit le Roi Gueux, est le second fils du roi Aerys II Targaryen et de la reine Rhaella Targaryen. Depuis la mort de son père et de son frère aîné, il est l\'héritier légitime des Sept Couronnes. La rébellion de Robert Baratheon l\'a contraint à s\'exiler, avec sa sœur Daenerys, dans les cités libres. Physiquement, Viserys ressemble beaucoup à feu le prince Rhaegar, mais est plus petit. Il arbore des cheveux d\'or argenté et ses yeux fiévreux couleur lilas pâle lui donnent un air peu aimable.\r\n\r\nOrgueilleux et ambitieux, il est persuadé d\'être le « dernier dragon ». Son objectif absolu est de retrouver son trône, et il est prêt à tout pour cela. Marqué par l\'exil contraint et la perte progressive de son prestige, il se montre volontiers colérique, brutal et méprisant, notamment envers sa sœur. Cependant, et bien que ces traits de caractères semblent partiellement antérieurs à l\'exil, Viserys sait aussi se montrer délicat et attentionné envers Daenerys. Abreuvé de fausses promesses par les puissants des cités libres et devenu un « phénomène de foire », Viserys a développé une profonde aigreur doublée d\'un aveuglement certain sur sa condition et ses chances de regagner un jour son trône.',	NULL,	NULL,	7);
 
 DROP TABLE IF EXISTS `character_house`;
 CREATE TABLE `character_house` (
@@ -102,24 +93,7 @@ INSERT INTO `character_house` (`character_id`, `house_id`) VALUES
 (18,	5),
 (19,	6),
 (20,	9),
-(21,	9),
-(22,	5),
-(22,	10),
-(25,	1),
-(25,	9),
-(25,	10),
-(26,	8),
-(26,	10),
-(27,	4),
-(27,	10),
-(28,	4),
-(28,	7),
-(28,	9),
-(28,	11),
-(29,	12),
-(30,	12),
-(32,	12),
-(33,	9);
+(21,	9);
 
 DROP TABLE IF EXISTS `house`;
 CREATE TABLE `house` (
@@ -141,10 +115,7 @@ INSERT INTO `house` (`id`, `created_at`, `updated_at`, `name`, `image`, `colour`
 (6,	NULL,	NULL,	'Greyjoy',	'greyjoy.png',	'1c1c1c'),
 (7,	NULL,	NULL,	'Tyrell',	'tyrell.png',	'1d6b2e'),
 (8,	NULL,	NULL,	'Martell',	'martell.png',	'd6973e'),
-(9,	NULL,	NULL,	'Targaryen',	'targaryen.png',	'111111'),
-(10,	NULL,	NULL,	'Disney',	'disney.png',	'990066'),
-(11,	NULL,	NULL,	'Marvel',	'marvel.png',	'cc0000'),
-(12,	NULL,	NULL,	'gryffondor',	'gryff.png',	'ff0000');
+(9,	NULL,	NULL,	'Targaryen',	'targaryen.png',	'111111');
 
 DROP TABLE IF EXISTS `title`;
 CREATE TABLE `title` (
@@ -164,11 +135,7 @@ INSERT INTO `title` (`id`, `created_at`, `updated_at`, `name`) VALUES
 (6,	NULL,	NULL,	'Bâtard'),
 (7,	NULL,	NULL,	'Prince'),
 (8,	NULL,	NULL,	'Princesse'),
-(9,	NULL,	NULL,	'Chevalier'),
-(10,	NULL,	NULL,	'Mage / Sorcier'),
-(11,	NULL,	NULL,	'Mouse'),
-(12,	NULL,	NULL,	'Superhéro'),
-(14,	NULL,	NULL,	'à supp');
+(9,	NULL,	NULL,	'Chevalier');
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -183,8 +150,6 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
 (1,	'user@user.com',	'[\"ROLE_USER\"]',	'$2y$13$QixNmn/EwmUUmNBNz/G4F.bYf0I5j1mKqZv4nfU7D5pirWi.pUxZy'),
 (2,	'admin@admin.com',	'[\"ROLE_ADMIN\"]',	'$2y$13$Tifl5ktCPtBFZsF3QXBFt.CXI1puL6CMZqiEkqzbxrD.1rHPHPHpq'),
-(3,	'manager@manager.com',	'[\"ROLE_MANAGER\"]',	'$2y$13$mlqPAFytDMAqYAJ/fXLyN..6DBoe5i/pAIiBRmteuQg7zsHyhwvk.'),
-(4,	'Test123+@test.com',	'[\"ROLE_MANAGER\"]',	'$2y$13$Z0bHS0tz7ugUKqoXSR/g1OuVjV3p.C4svD4RdS0il8WDEvdBEQVPS'),
-(5,	'Pioupiou1++@test.com',	'[\"ROLE_USER\"]',	'$2y$13$doyF/xX085l0wKNjSMhtPOvmMY1Z2NQYyv4MNhzrm2/fn9kUA4YpS');
+(3,	'manager@manager.com',	'[\"ROLE_MANAGER\"]',	'$2y$13$mlqPAFytDMAqYAJ/fXLyN..6DBoe5i/pAIiBRmteuQg7zsHyhwvk.');
 
 -- 2023-03-13 16:16:05

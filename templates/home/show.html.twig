@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ theCharacter.firstName }} {{ theCharacter.lastName }}{% endblock %}
+{% block title %}Game Of Thrones - {{ theCharacter.firstName }} {{ theCharacter.lastName }}{% endblock %}
 
 {% block body %}
 <main>
@@ -17,7 +17,7 @@
                 <div class="avatar" style="background: linear-gradient(45deg 
                         {% for house in theCharacter.houses %}
                             {% if house  %} , #{{ house.colour }}   , #{{ house.colour }}
-                            {% else %} , #ff00ff , #ff00ff
+
                             {% endif %}
                         {% endfor %});">
                         <img src="{{ asset('img/' ~ theCharacter.image) }}" alt="{{ theCharacter.firstName }}">
