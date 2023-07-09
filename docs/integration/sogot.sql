@@ -11,7 +11,7 @@ SET NAMES utf8mb4;
 -- CREATE DATABASE `sogot` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 -- USE `sogot`;
 
-DROP TABLE IF EXISTS `character`;
+-- DROP TABLE IF EXISTS `character`;
 CREATE TABLE `character` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
@@ -55,7 +55,7 @@ INSERT INTO `character` (`id`, `created_at`, `updated_at`, `last_name`, `first_n
 (20,	NULL,	NULL,	'Targaryen',	'Daenerys',	'daenerys.png',	'Née en l\'an 284, Daenerys Targaryen, surnommée Daenerys du Typhon (ou Daenerys Typhon-Née), est l\'unique fille du roi Aerys II Targaryen et de la reine Rhaella Targaryen. C\'est une très belle jeune fille à la carnation claire, timide et svelte, et qui possède les yeux améthyste et les cheveux or et argent caractéristiques des Targaryen.\r\n\r\nDepuis la chute de la dynastie des Targaryen, Daenerys et son frère Viserys subsistent en exil dans les cités libres au-delà du détroit. Daenerys vit dans l\'ombre de son frère qui ne rêve que de reconquérir le Trône de Fer de leurs aïeux. N\'ayant jamais connu les Sept Couronnes, elle ne rêve pour sa part que d\'une vie tranquille semblable à celle de son enfance passée à Braavos sous la protection du bon ser Willem Darry qui la chérissait. Sa vie, faite de fuites successives, et qui l\'a contrainte avec son frère à demander l\'hospitalité aux puissants des cités libres, l\'a rendue prudente et lucide sur la nature humaine. Elle se montre bien plus consciente que son aîné des attentes de ceux qui soutiennent prétendument les derniers héritiers de la lignée de la maison Targaryen.',	NULL,	NULL,	8),
 (21,	NULL,	NULL,	'Targaryen',	'Viserys',	'viserys.png',	'Né en l\'an 276, Viserys III Targaryen, dit le Roi Gueux, est le second fils du roi Aerys II Targaryen et de la reine Rhaella Targaryen. Depuis la mort de son père et de son frère aîné, il est l\'héritier légitime des Sept Couronnes. La rébellion de Robert Baratheon l\'a contraint à s\'exiler, avec sa sœur Daenerys, dans les cités libres. Physiquement, Viserys ressemble beaucoup à feu le prince Rhaegar, mais est plus petit. Il arbore des cheveux d\'or argenté et ses yeux fiévreux couleur lilas pâle lui donnent un air peu aimable.\r\n\r\nOrgueilleux et ambitieux, il est persuadé d\'être le « dernier dragon ». Son objectif absolu est de retrouver son trône, et il est prêt à tout pour cela. Marqué par l\'exil contraint et la perte progressive de son prestige, il se montre volontiers colérique, brutal et méprisant, notamment envers sa sœur. Cependant, et bien que ces traits de caractères semblent partiellement antérieurs à l\'exil, Viserys sait aussi se montrer délicat et attentionné envers Daenerys. Abreuvé de fausses promesses par les puissants des cités libres et devenu un « phénomène de foire », Viserys a développé une profonde aigreur doublée d\'un aveuglement certain sur sa condition et ses chances de regagner un jour son trône.',	NULL,	NULL,	7);
 
-DROP TABLE IF EXISTS `character_house`;
+-- DROP TABLE IF EXISTS `character_house`;
 CREATE TABLE `character_house` (
   `character_id` int(11) NOT NULL,
   `house_id` int(11) NOT NULL,
@@ -95,7 +95,7 @@ INSERT INTO `character_house` (`character_id`, `house_id`) VALUES
 (20,	9),
 (21,	9);
 
-DROP TABLE IF EXISTS `house`;
+-- DROP TABLE IF EXISTS `house`;
 CREATE TABLE `house` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
@@ -117,7 +117,7 @@ INSERT INTO `house` (`id`, `created_at`, `updated_at`, `name`, `image`, `colour`
 (8,	NULL,	NULL,	'Martell',	'martell.png',	'd6973e'),
 (9,	NULL,	NULL,	'Targaryen',	'targaryen.png',	'111111');
 
-DROP TABLE IF EXISTS `title`;
+-- DROP TABLE IF EXISTS `title`;
 CREATE TABLE `title` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
@@ -137,7 +137,7 @@ INSERT INTO `title` (`id`, `created_at`, `updated_at`, `name`) VALUES
 (8,	NULL,	NULL,	'Princesse'),
 (9,	NULL,	NULL,	'Chevalier');
 
-DROP TABLE IF EXISTS `user`;
+-- DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(180) NOT NULL,
