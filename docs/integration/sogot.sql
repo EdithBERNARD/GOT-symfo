@@ -11,6 +11,48 @@ SET NAMES utf8mb4;
 -- CREATE DATABASE `sogot` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 -- USE `sogot`;
 
+-- DROP TABLE IF EXISTS `house`;
+CREATE TABLE `house` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `colour` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `house` (`id`, `created_at`, `updated_at`, `name`, `image`, `colour`) VALUES
+(1,	NULL,	NULL,	'Stark',	'stark.png',	'e3e3e3'),
+(2,	NULL,	NULL,	'Baratheon',	'baratheon.png',	'baa207'),
+(3,	NULL,	NULL,	'Tully',	'tully.png',	'2b3aab'),
+(4,	NULL,	NULL,	'Arryn',	'arryn.png',	'6ebae6'),
+(5,	NULL,	NULL,	'Lannister',	'lannister.png',	'a31a10'),
+(6,	NULL,	NULL,	'Greyjoy',	'greyjoy.png',	'1c1c1c'),
+(7,	NULL,	NULL,	'Tyrell',	'tyrell.png',	'1d6b2e'),
+(8,	NULL,	NULL,	'Martell',	'martell.png',	'd6973e'),
+(9,	NULL,	NULL,	'Targaryen',	'targaryen.png',	'111111');
+
+-- DROP TABLE IF EXISTS `title`;
+CREATE TABLE `title` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `title` (`id`, `created_at`, `updated_at`, `name`) VALUES
+(1,	NULL,	NULL,	'Lord'),
+(2,	NULL,	NULL,	'Lady'),
+(3,	NULL,	NULL,	'Noble'),
+(4,	NULL,	NULL,	'Roi'),
+(5,	NULL,	NULL,	'Reine'),
+(6,	NULL,	NULL,	'Bâtard'),
+(7,	NULL,	NULL,	'Prince'),
+(8,	NULL,	NULL,	'Princesse'),
+(9,	NULL,	NULL,	'Chevalier');
+
 -- DROP TABLE IF EXISTS `character`;
 CREATE TABLE `character` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -95,47 +137,7 @@ INSERT INTO `character_house` (`character_id`, `house_id`) VALUES
 (20,	9),
 (21,	9);
 
--- DROP TABLE IF EXISTS `house`;
-CREATE TABLE `house` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `colour` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `house` (`id`, `created_at`, `updated_at`, `name`, `image`, `colour`) VALUES
-(1,	NULL,	NULL,	'Stark',	'stark.png',	'e3e3e3'),
-(2,	NULL,	NULL,	'Baratheon',	'baratheon.png',	'baa207'),
-(3,	NULL,	NULL,	'Tully',	'tully.png',	'2b3aab'),
-(4,	NULL,	NULL,	'Arryn',	'arryn.png',	'6ebae6'),
-(5,	NULL,	NULL,	'Lannister',	'lannister.png',	'a31a10'),
-(6,	NULL,	NULL,	'Greyjoy',	'greyjoy.png',	'1c1c1c'),
-(7,	NULL,	NULL,	'Tyrell',	'tyrell.png',	'1d6b2e'),
-(8,	NULL,	NULL,	'Martell',	'martell.png',	'd6973e'),
-(9,	NULL,	NULL,	'Targaryen',	'targaryen.png',	'111111');
-
--- DROP TABLE IF EXISTS `title`;
-CREATE TABLE `title` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `title` (`id`, `created_at`, `updated_at`, `name`) VALUES
-(1,	NULL,	NULL,	'Lord'),
-(2,	NULL,	NULL,	'Lady'),
-(3,	NULL,	NULL,	'Noble'),
-(4,	NULL,	NULL,	'Roi'),
-(5,	NULL,	NULL,	'Reine'),
-(6,	NULL,	NULL,	'Bâtard'),
-(7,	NULL,	NULL,	'Prince'),
-(8,	NULL,	NULL,	'Princesse'),
-(9,	NULL,	NULL,	'Chevalier');
 
 -- DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
