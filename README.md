@@ -2,7 +2,7 @@
 
 projet modifié pour coller aux notions vues pendant le mois de spécialisation Symfony ! 
 
-j'y ai notament rajouté des foncionnalité et lui ai créé un backoffice. 
+j'y ai notament rajouté des foncionnalités et lui ai créé un backoffice. 
 
 j'ai retravaillé la BDD. 
 
