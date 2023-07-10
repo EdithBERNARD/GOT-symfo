@@ -1,5 +1,16 @@
 # Game of Thrones
 
+projet modifié pour coller aux notions vues pendant le mois de spécialisation Symfony ! 
+
+j'y ai notament rajouté des foncionnalité et lui ai créé un backoffice. 
+
+j'ai retravaillé la BDD. 
+
+
+
+
+## voici l'exercice proposé à l'origine
+
 Aujourd'hui nous allons réaliser une petite encyclopédie à propos d'un petit bouquin méconnu, mais qui monte. Il parait qu'une série télé est en préparation !
 
 L'exercice se compose de 4 pages : 
